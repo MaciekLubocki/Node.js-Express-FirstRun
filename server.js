@@ -13,11 +13,10 @@ app.use(express.json());
 app.post("/contact/send-message", (req, res) => {
   const { author, sender, title, message, projectDesign  } = req.body;
   if(author && sender && title && message && projectDesign) {
-    res.render('contact', { isSent: true });
+    res.render('contact', { isSent: true, projectDesign });
   }
   else {
     res.render('contact', { isError: true });
-  }
 });
 
 app.get('/', (req, res) => {
